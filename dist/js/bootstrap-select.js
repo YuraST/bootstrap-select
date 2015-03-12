@@ -350,7 +350,7 @@
           '<div class="btn-group bootstrap-select' + multiple + inputGroup + '">' +
           '<button type="button" class="btn dropdown-toggle" data-toggle="dropdown"' + autofocus + '>' +
           '<span class="filter-option pull-left"></span>&nbsp;' +
-          '<span class="caret"></span>' +
+          '<span class="icon icon-angle-down"></span>' +
           '</button>' +
           '<div class="dropdown-menu open">' +
           header +
@@ -967,7 +967,7 @@
 
     liveSearchListener: function () {
       var that = this,
-          $no_results = $('<li class="no-results"></li>');
+          $no_results = $('<li class="no-results"><div class="no-results-inner"></div></li>');
 
       this.$newElement.on('click.dropdown.data-api touchstart.dropdown.data-api', function () {
         that.$menu.find('.active').removeClass('active');
@@ -1024,7 +1024,7 @@
             if (!!$no_results.parent().length) {
               $no_results.remove();
             }
-            $no_results.html(that.options.noneResultsText.replace('{0}', '"' + htmlEscape(that.$searchbox.val()) + '"')).show();
+            $no_results.find('.no-results-inner').html(that.options.noneResultsText.replace('{0}', '<span class="no-results-text">"' + htmlEscape(that.$searchbox.val()) + '"</span>')).show();
             that.$menu.append($no_results);
           } else if (!!$no_results.parent().length) {
             $no_results.remove();

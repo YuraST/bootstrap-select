@@ -25,10 +25,6 @@
     width: auto !important;
   }
 
-  &:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
-    width: @width-default;
-  }
-
   .btn:focus {
     outline: thin dotted #333333 !important;
     outline: 5px auto -webkit-focus-ring-color !important;
@@ -52,13 +48,6 @@
 
 // The selectpicker components
 .bootstrap-select.btn-group {
-  &:not(.input-group-btn),
-  &[class*="col-"] {
-    float: none;
-    display: inline-block;
-    margin-left: 0;
-  }
-
   // Forces the pull to the right, if necessary
   &,
   &[class*="col-"],
@@ -181,8 +170,29 @@
 
   .no-results {
     padding: 3px;
-    background: #f5f5f5;
-    margin: 0 5px;
+    background: #fff;
+    margin: 0 12px 0 8px;
+    line-height: 0;
+    border-radius: 4px;
+    top: 0;
+  }
+
+  .no-results-inner {
+    display: inline-block !important;
+    position: relative;
+    width: 100%;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: normal;
+    color: #939ca2;
+    top: -110px;
+    overflow: hidden;
+  }
+
+  .no-results-text {
+    display: block;
+    color: #2c3241;
+    font-size: 15px;
   }
 
   &.fit-width .btn {
@@ -310,6 +320,14 @@
   & input.form-control {
     margin-bottom: 0;
     width: 100%;
+  }
+
+  input:focus,
+  input:hover {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 2px solid #40b3de;
+    padding: 5px 11px;
   }
 }
 

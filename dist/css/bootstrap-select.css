@@ -20,9 +20,6 @@
 .bootstrap-select.fit-width {
   width: auto !important;
 }
-.bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
-  width: 220px;
-}
 .bootstrap-select .btn:focus {
   outline: thin dotted #333333 !important;
   outline: 5px auto -webkit-focus-ring-color !important;
@@ -38,12 +35,6 @@
 }
 .bootstrap-select.form-control.input-group-btn {
   z-index: auto;
-}
-.bootstrap-select.btn-group:not(.input-group-btn),
-.bootstrap-select.btn-group[class*="col-"] {
-  float: none;
-  display: inline-block;
-  margin-left: 0;
 }
 .bootstrap-select.btn-group.dropdown-menu-right,
 .bootstrap-select.btn-group[class*="col-"].dropdown-menu-right,
@@ -144,8 +135,27 @@
 }
 .bootstrap-select.btn-group .no-results {
   padding: 3px;
-  background: #f5f5f5;
-  margin: 0 5px;
+  background: #fff;
+  margin: 0 12px 0 8px;
+  line-height: 0;
+  border-radius: 4px;
+  top: 0;
+}
+.bootstrap-select.btn-group .no-results-inner {
+  display: inline-block !important;
+  position: relative;
+  width: 100%;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: normal;
+  color: #939ca2;
+  top: -110px;
+  overflow: hidden;
+}
+.bootstrap-select.btn-group .no-results-text {
+  display: block;
+  color: #2c3241;
+  font-size: 15px;
 }
 .bootstrap-select.btn-group.fit-width .btn .filter-option {
   position: static;
@@ -242,6 +252,13 @@
 .bs-searchbox input.form-control {
   margin-bottom: 0;
   width: 100%;
+}
+.bs-searchbox input:focus,
+.bs-searchbox input:hover {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: 2px solid #40b3de;
+  padding: 5px 11px;
 }
 .mobile-device {
   position: absolute !important;
