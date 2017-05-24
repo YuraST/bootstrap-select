@@ -309,6 +309,22 @@
       this.$menu.data('this', this);
       this.$newElement.data('this', this);
       if (this.options.mobile) this.mobile();
+
+      this.$newElement.on('hide.bs.dropdown', function(e) {
+        that.$element.trigger('hide.bs.select', e);
+      });
+
+      this.$newElement.on('hidden.bs.dropdown', function(e) {
+        that.$element.trigger('hidden.bs.select', e);
+      });
+
+      this.$newElement.on('show.bs.dropdown', function(e) {
+        that.$element.trigger('show.bs.select', e);
+      });
+
+      this.$newElement.on('shown.bs.dropdown', function(e) {
+        that.$element.trigger('shown.bs.select', e);
+      });
     },
 
     createDropdown: function () {
@@ -553,6 +569,8 @@
       //strip all html-tags and trim the result
       this.$button.attr('title', $.trim(title.replace(/<[^>]*>?/g, '')));
       this.$button.children('.filter-option').html(title);
+
+      this.$element.trigger('rendered.bs.select');
     },
 
     /**
@@ -908,6 +926,8 @@
           // Trigger select 'change'
           if ((prevValue != that.$element.val() && that.multiple) || (prevIndex != that.$element.prop('selectedIndex') && !that.multiple)) {
             that.$element.change();
+            // $option.prop('selected') is current option state (selected/unselected). state is previous option state.
+            that.$element.trigger('changed.bs.select', [clickedIndex, $option.prop('selected'), state]);
           }
         }
       });
@@ -1303,6 +1323,8 @@
       this.setStyle();
       this.checkDisabled();
       this.liHeight();
+
+      this.$element.trigger('refreshed.bs.select');
     },
 
     hide: function () {
